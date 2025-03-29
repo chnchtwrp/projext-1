@@ -10,16 +10,17 @@ import React from "react";
 
 const page = async () => {
   // const posts = await getPosts();
+  const posts = 0;
   return (
     <main>
       <div className="justify-items-center">
         <h1 className="text-3xl font-bold">Simple Blog📝</h1>
-        <div className="space-y-4">
-          {/* {posts.length > 0 ? (
+        <div className="space-y-4 pt-14">
+          {posts.length > 0 ? (
             posts.map((post: any) => <Postcards key={post.id} post={post} />)
           ) : (
             <p className="text-slate-500">Empty Blog Post</p>
-          )} */}
+          )}
         </div>
       </div>
     </main>
