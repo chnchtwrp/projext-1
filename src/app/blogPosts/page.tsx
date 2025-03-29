@@ -1,4 +1,4 @@
-import Postcards from "@/components/Postcards";
+import Postcards from "@/components/postCard/Postcards";
 import React from "react";
 
 // const getPosts = async () => {
