@@ -1,4 +1,5 @@
 import Postcards from "@/components/postCard/Postcards";
+import Link from "next/link";
 import React from "react";
 
 // const getPosts = async () => {
@@ -22,6 +23,12 @@ const page = async () => {
             <p className="text-slate-500">Empty Blog Post</p>
           )}
         </div>
+        <Link
+          href="/post/create"
+          className="bg-green-500 text-white px-4 py-2 rounded"
+        >
+          Create new post
+        </Link>
       </div>
     </main>
   );
