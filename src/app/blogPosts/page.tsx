@@ -1,22 +1,22 @@
-import Postcards from "@/components/postCard/Postcards";
+import Postcards from "@/src/components/postCard/Postcards";
 import Link from "next/link";
 import React from "react";
 
-// const getPosts = async () => {
-//   const res = await fetch("http://localhost:3000/api/posts", {
-//     cache: "no-store",
-//   });
-//   return res.json();
-// };
+const getPosts = async () => {
+  const res = await fetch("http://localhost:3000/api/posts", {
+    cache: "no-store",
+  });
+  return res.json();
+};
 
 const page = async () => {
-  // const posts = await getPosts();
-  const posts = 0;
+  const posts = await getPosts();
+
   return (
     <main>
       <div className="justify-items-center">
         <h1 className="text-3xl font-bold">Simple Blog📝</h1>
-        <div className="space-y-4 pt-14">
+        <div className="grid grid-cols-3 gap-4 pt-14 pb-10">
           {posts.length > 0 ? (
             posts.map((post: any) => <Postcards key={post.id} post={post} />)
           ) : (

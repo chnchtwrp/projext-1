@@ -12,11 +12,9 @@ const create = (props: Props) => {
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
-    console.log(title);
   };
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.target.value);
-    console.log(content);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,6 +26,7 @@ const create = (props: Props) => {
       body: JSON.stringify({ title, content }),
     });
     if (res.ok) {
+      alert("Created post completed !!");
       router.push("/");
     }
   };

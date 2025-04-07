@@ -18,7 +18,7 @@ const MainNavbar = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   // 195d82
   return (
-    <nav className="w-full lg:h-20 h-14  my-auto drop-shadow-md shadow-lg bg-[#88acc1]">
+    <nav className="w-full lg:h-20 h-14 my-auto drop-shadow-md shadow-lg bg-[#88acc1]">
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
         <div className="justify-items-center">
           <Link href="/">
@@ -54,7 +54,7 @@ const MainNavbar = (props: Props) => {
         </div>
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden cursor-pointer pl-24"
+          className="lg:hidden  cursor-pointer pl-24"
         >
           {isOpen ? <FiList size={25} /> : <FiMenu size={25} />}
         </div>
@@ -67,8 +67,8 @@ const MainNavbar = (props: Props) => {
         // }
         className={
           isOpen
-            ? "fixed left-0 top-0 h-screen lg:hidden w-screen  bg-[#2077a7] p-10 ease-in duration-700"
-            : "fixed left-[100%] top-0 h-screen w-screen  bg-[#2077a7] p-10 ease-in duration-1000"
+            ? "fixed left-[100%] top-0 h-screen hidden w-screen bg-[#2077a7] p-10 ease-in duration-700"
+            : "fixed left-0 top-0 h-screen lg:hidden transition-[transform]  w-screen bg-[#2077a7] p-10 ease-out duration-1000"
         }
       >
         <div
