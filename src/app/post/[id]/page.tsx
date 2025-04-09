@@ -5,7 +5,9 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 interface PostPageProps {
-  params: { id: string };
+  params: {
+    id: string;
+  };
 }
 
 // const getPost = async (id: string) => {
@@ -21,19 +23,17 @@ const getPostsById = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
     cache: "no-store",
   });
-  console.log("res is", res.status);
   if (!res.ok) return null;
   return res.json();
 };
 
 // const page = async ({ params }: PostPageProps) => {
-const page = async (
-  req: Request,
-  params: { params: Promise<{ id: string }> }
-) => {
-  const PostId = req;
-  // console.log("Post ID : ", Promise. );
-  // const post = await getPost(params.id);
+const page = async ({ params }: PostPageProps) => {
+  // const PostId = req;
+  const post = await getPostsById(params.id);
+  // console.log("Post is : ", params.id);
+
+  if (!post) return <div>Post not found</div>;
   // const post = await prisma.post.findUnique({
   //   where: {
   //     id: params.id,
@@ -46,11 +46,11 @@ const page = async (
 
   return (
     <main className="max-w-2xl mx-auto p-4">
-      {/* <h1 className="text-3xl font-bold">{post.title}</h1>
+      <h1 className="text-3xl font-bold">{post.title}</h1>
       <p className="text-gray-600 mt-2">{post.content}</p>
       <p className="text-sm text-gray-400 mt-4">
         Posted date {new Date(post.createdAt).toLocaleDateString()}
-      </p> */}
+      </p>
     </main>
   );
 };
